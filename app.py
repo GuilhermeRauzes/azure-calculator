@@ -32,7 +32,8 @@ def seo_vm_page(vm_id):
 @app.route('/sitemap.xml')
 def sitemap():
     pages = []
-    base_url = "https://seusiteaqui.com" 
+    base_url = "https://azure-calc-pro.onrender.com" 
+    
     pages.append(f"{base_url}/")
     for vm in db['vms']:
         pages.append(f"{base_url}/calculadora-azure/{vm['id']}")
