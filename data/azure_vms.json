@@ -1,0 +1,53 @@
+{
+  "vms": [
+    {"id": "b1s", "name": "Standard_B1s", "cpu": 1, "ram": 1, "base_price": 7.59, "tier": "Burstable"},
+    {"id": "b2s", "name": "Standard_B2s", "cpu": 2, "ram": 4, "base_price": 30.36, "tier": "Burstable"},
+    {"id": "d2s_v3", "name": "Standard_D2s_v3", "cpu": 2, "ram": 8, "base_price": 70.08, "tier": "General Purpose"},
+    {"id": "d4s_v3", "name": "Standard_D4s_v3", "cpu": 4, "ram": 16, "base_price": 140.16, "tier": "General Purpose"},
+    {"id": "d8s_v3", "name": "Standard_D8s_v3", "cpu": 8, "ram": 32, "base_price": 280.32, "tier": "General Purpose"},
+    {"id": "e2s_v3", "name": "Standard_E2s_v3", "cpu": 2, "ram": 16, "base_price": 93.44, "tier": "Memory Optimized"},
+    {"id": "f2s_v2", "name": "Standard_F2s_v2", "cpu": 2, "ram": 4, "base_price": 62.05, "tier": "Compute Optimized"},
+    {"id": "b2ms", "name": "Standard_B2ms", "cpu": 2, "ram": 8, "base_price": 60.74, "tier": "Burstable"},
+    {"id": "a2_v2", "name": "Standard_A2_v2", "cpu": 2, "ram": 4, "base_price": 46.72, "tier": "Entry Level"},
+    {"id": "ds1_v2", "name": "Standard_DS1_v2", "cpu": 1, "ram": 3.5, "base_price": 51.10, "tier": "General Purpose"}
+  ],
+  "regions": [
+    {"id": "eastus", "name": "East US (Mais Barato)", "multiplier": 1.0},
+    {"id": "eastus2", "name": "East US 2", "multiplier": 1.0},
+    {"id": "westus2", "name": "West US 2", "multiplier": 1.0},
+    {"id": "northeurope", "name": "North Europe", "multiplier": 1.05},
+    {"id": "westeurope", "name": "West Europe", "multiplier": 1.10},
+    {"id": "uksouth", "name": "UK South", "multiplier": 1.15},
+    {"id": "centralindia", "name": "Central India", "multiplier": 1.12},
+    {"id": "southeastasia", "name": "Southeast Asia", "multiplier": 1.20},
+    {"id": "australiaeast", "name": "Australia East", "multiplier": 1.25},
+    {"id": "brazilsouth", "name": "Brazil South", "multiplier": 1.45}
+  ],
+  "os": [
+    {"id": "linux", "name": "Linux (Ubuntu/CentOS)", "price_per_core": 0},
+    {"id": "windows", "name": "Windows Server 2022", "price_per_core": 33.58}
+  ],
+  "disks": [
+    {"id": "none", "name": "Apenas Disco do SO", "price": 0},
+    {"id": "e10", "name": "Standard HDD 128GB (E10)", "price": 5.89},
+    {"id": "p4", "name": "Premium SSD 32GB (P4)", "price": 5.28},
+    {"id": "p10", "name": "Premium SSD 128GB (P10)", "price": 19.71},
+    {"id": "p15", "name": "Premium SSD 256GB (P15)", "price": 38.01}
+  ],
+  "sql": [
+    {"id": "none", "name": "Nenhum Banco (IaaS)", "price": 0},
+    {"id": "s0", "name": "Azure SQL S0 (10 DTUs)", "price": 14.72},
+    {"id": "s2", "name": "Azure SQL S2 (50 DTUs)", "price": 73.61},
+    {"id": "vcore2", "name": "SQL Managed Gen5 (2 vCore)", "price": 369.32}
+  ],
+  "support": [
+    {"id": "basic", "name": "Basic (Gratuito)", "price": 0},
+    {"id": "developer", "name": "Developer", "price": 29.00},
+    {"id": "standard", "name": "Standard", "price": 100.00}
+  ],
+  "hidden_costs": {
+    "ip_public": 3.65,
+    "bandwidth_per_gb": 0.087,
+    "backup_per_gb": 0.03
+  }
+}

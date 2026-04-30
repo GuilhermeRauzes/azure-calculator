@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Custo Mensal - Azure {{ vm.name }}{% endblock %}
+
+{% block content %}
+<div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-8 md:p-12 transition-colors duration-300">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-800 dark:text-white mb-6">
+        <span data-i18n="seo_h1">Custo Mensal da Máquina</span> <span class="text-blue-600 dark:text-blue-400">{{ vm.name }}</span>
+    </h1>
+    
+    <p class="text-slate-600 dark:text-slate-300 mb-10 text-lg leading-relaxed">
+        <span data-i18n="seo_p1">A instância</span> <strong>{{ vm.name }}</strong> <span data-i18n="seo_p2">da Microsoft Azure (categoria</span> {{ vm.tier }}<span data-i18n="seo_p3">) vem equipada com</span> <strong>{{ vm.cpu }} vCPUs</strong> <span data-i18n="seo_p4">e</span> <strong>{{ vm.ram }} GB <span data-i18n="seo_p5">de Memória RAM</span>.</strong> 
+        <span data-i18n="seo_p6">Para uma carga de trabalho rodando 24 horas por dia, 7 dias por semana (aproximadamente 730 horas mensais), o custo base estimado é de</span> <strong class="text-slate-800 dark:text-white">${{ vm.base_price }} USD <span data-i18n="seo_p7">por mês</span>.</strong>
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div class="bg-slate-50 dark:bg-slate-700/50 p-6 rounded-xl border border-slate-100 dark:border-slate-600 text-center">
+            <div class="text-xs text-slate-400 uppercase font-bold tracking-wider mb-1" data-i18n="seo_cpu">Processamento</div>
+            <div class="text-2xl font-bold text-slate-800 dark:text-white">{{ vm.cpu }} vCPUs</div>
+        </div>
+        <div class="bg-slate-50 dark:bg-slate-700/50 p-6 rounded-xl border border-slate-100 dark:border-slate-600 text-center">
+            <div class="text-xs text-slate-400 uppercase font-bold tracking-wider mb-1" data-i18n="seo_ram">Memória RAM</div>
+            <div class="text-2xl font-bold text-slate-800 dark:text-white">{{ vm.ram }} GB</div>
+        </div>
+        <div class="bg-slate-50 dark:bg-slate-700/50 p-6 rounded-xl border border-slate-100 dark:border-slate-600 text-center">
+            <div class="text-xs text-slate-400 uppercase font-bold tracking-wider mb-1" data-i18n="seo_tier">Série / Família</div>
+            <div class="text-xl font-bold text-slate-800 dark:text-white">{{ vm.tier }}</div>
+        </div>
+        <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl border border-blue-100 dark:border-blue-800 text-center">
+            <div class="text-xs text-blue-500 uppercase font-bold tracking-wider mb-1" data-i18n="seo_cost">Custo Total / Mês</div>
+            <div class="text-2xl font-black text-blue-700 dark:text-blue-400">${{ vm.base_price }}</div>
+        </div>
+    </div>
+
+    <div class="border-t border-slate-200 dark:border-slate-700 pt-8 text-center md:text-left">
+        <a href="/" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg">
+            <span data-i18n="seo_btn">Ir para a Calculadora Completa</span>
+        </a>
+    </div>
+</div>
+
+<div class="mt-12">
+    <h3 class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4"><span data-i18n="seo_guides">Guias de Preços por Instância</span>:</h3>
+    <div class="flex flex-wrap gap-3">
+        {% for other_vm in vms %}
+            {% if other_vm.id != vm.id %}
+                <a href="/calculadora-azure/{{ other_vm.id }}" class="flex flex-col items-center justify-center text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg shadow-sm hover:shadow transition-all">
+                    <span>{{ other_vm.name }}</span>
+                    <span class="text-xs text-blue-500 dark:text-blue-400 font-bold mt-1">${{ other_vm.base_price }}</span>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
